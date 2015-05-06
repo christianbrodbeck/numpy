@@ -286,6 +286,8 @@ class TestSetOps(TestCase):
         assert_array_equal(c, ec)
 
         assert_array_equal([], setdiff1d([], []))
+        a = np.array((), np.uint32)
+        assert setdiff1d(a, []).dtype is np.dtype('uint32')
 
     def test_setdiff1d_char_array(self):
         a = np.array(['a', 'b', 'c'])

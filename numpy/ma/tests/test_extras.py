@@ -1109,6 +1109,8 @@ class TestArraySetOps(TestCase):
         a = arange(10)
         b = arange(8)
         assert_equal(setdiff1d(a, b), array([8, 9]))
+        a = array([], np.uint32, mask=[])
+        assert setdiff1d(a, []).dtype is np.dtype('uint32')
 
     def test_setdiff1d_char_array(self):
         # Test setdiff1d_charray
